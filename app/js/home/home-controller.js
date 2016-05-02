@@ -1,7 +1,8 @@
 "use strict";
 
-angular.module('IssueTrackingSystem.Home', [])
-    .config([
+angular.module('IssueTrackingSystem.Home', [
+    'IssueTrackingSystem.Users.Authentication'
+    ]).config([
         '$routeProvider',
         function ($routeProvider) {
             $routeProvider.when('/', {
@@ -10,7 +11,18 @@ angular.module('IssueTrackingSystem.Home', [])
             })
         }
     ]).controller('HomeController', [
-        '$scope',
-        function ($scope) {
-        }
-    ]);
+    '$scope',
+    'authentication',
+    function ($scope, authentication) {
+        $scope.loginUser = function (user) {
+            authentication.loginUser(user);
+        };
+
+        $scope.registerUser = function (user) {
+            authentication.registerUser(user)
+                .then(function (registeredUser) {
+                    console.log(registeredUser);
+                });
+        };
+    }
+]);

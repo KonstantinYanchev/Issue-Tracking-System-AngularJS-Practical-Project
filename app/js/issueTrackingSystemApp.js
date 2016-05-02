@@ -2,6 +2,7 @@
 
 angular.module('IssueTrackingSystem', [
         'ngRoute',
+        'IssueTrackingSystem.Users.Authentication',
         'IssueTrackingSystem.Home'
     ]).config([
         '$routeProvider',
@@ -10,4 +11,4 @@ angular.module('IssueTrackingSystem', [
                 redirectTo: '/'
             });
         }
-    ]);
+    ]).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
