@@ -1,0 +1,10 @@
+/**General styles***/
+
+body {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+#offset {
+    margin-bottom: 60px;
+}
