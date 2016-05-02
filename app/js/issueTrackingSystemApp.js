@@ -1,5 +1,13 @@
 "use strict";
 
 angular.module('IssueTrackingSystem', [
-    'ngRoute'
-]);
+        'ngRoute',
+        'IssueTrackingSystem.Home'
+    ]).config([
+        '$routeProvider',
+        function ($routeProvider) {
+            $routeProvider.otherwise({
+                redirectTo: '/'
+            });
+        }
+    ]);

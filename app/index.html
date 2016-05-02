@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="IssueTrackingSystem">
     <head>
         <meta charset="UTF-8">
         <title>Issue Tracking System</title>
@@ -49,18 +49,8 @@
 
     <div id="offset"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <p>Hello!</p>
-            </div>
+        <div ng-view>
 
-            <div class="col-md-4">
-                <p>Hello!</p>
-            </div>
-
-            <div class="col-md-4">
-                <p>Hello!</p>
-            </div>
         </div>
     </div>
 
@@ -69,5 +59,6 @@
     <script src="js/components/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="js/components/bootstrap/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/issueTrackingSystemApp.js" type="text/javascript"></script>
+    <script src="js/home/home-controller.js" type="text/javascript"></script>
     </body>
 </html>
