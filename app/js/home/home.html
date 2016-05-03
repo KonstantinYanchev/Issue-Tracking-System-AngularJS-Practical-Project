@@ -8,13 +8,13 @@
                     <div class="form-group">
                         <label for="login-email" class="col-lg-2 control-label">Email</label>
                         <div class="col-lg-10">
-                            <input type="text" ng-model="logUser.Email" required="required" class="form-control" id="login-email" placeholder="Email">
+                            <input type="text" ng-model="logUser.email" required="required" class="form-control" id="login-email" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="login-password" class="col-lg-2 control-label">Password</label>
                         <div class="col-lg-10">
-                            <input type="password" ng-model="logUser.Password" required="required" class="form-control" id="login-password" placeholder="Password">
+                            <input type="password" ng-model="logUser.password" required="required" class="form-control" id="login-password" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">
@@ -36,25 +36,25 @@
                     <div class="form-group">
                         <label for="reg-email" class="col-lg-4 control-label">Email</label>
                         <div class="col-lg-8">
-                            <input type="text" ng-model="regUser.Email" required="required" class="form-control" id="reg-email" placeholder="Email" />
+                            <input type="text" ng-model="regUser.email" required="required" class="form-control" id="reg-email" placeholder="Email" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="reg-password" class="col-lg-4 control-label">Password</label>
                         <div class="col-lg-8">
-                            <input type="password" ng-model="regUser.Password" minlength="6" maxlength="100" required="required" class="form-control" id="reg-password" placeholder="Password" />
+                            <input type="password" ng-model="regUser.password" minlength="6" maxlength="100" required="required" class="form-control" id="reg-password" placeholder="Password" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="reg-confirm-password" class="col-lg-4 control-label">Confirm Password</label>
                         <div class="col-lg-8">
-                            <input type="password" ng-model="regUser.ConfirmPassword"  minlength="6" maxlength="100"  required="required" class="form-control" id="reg-confirm-password" placeholder="Confirm Password" />
+                            <input type="password" ng-model="regUser.confirmPassword"  minlength="6" maxlength="100"  required="required" class="form-control" id="reg-confirm-password" placeholder="Confirm Password" />
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-4">
                             <input type="reset" class="btn btn-default" value="Clear" />
-                            <input type="submit" ng-disabled="registerUserForm.$invalid || regUser.Password != regUser.ConfirmPassword" ng-click="registerUser(regUser)" class="btn btn-primary" value="Register" />
+                            <input type="submit" ng-disabled="registerUserForm.$invalid || regUser.password != regUser.confirmPassword" ng-click="registerUser(regUser)" class="btn btn-primary" value="Register" />
                         </div>
                     </div>
                 </fieldset>

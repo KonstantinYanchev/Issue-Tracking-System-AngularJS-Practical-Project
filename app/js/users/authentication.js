@@ -13,28 +13,19 @@ angular.module('IssueTrackingSystem.Users.Authentication', [])
                     .then(function (response) {
                         deferred.resolve(response.data);
                         console.log(response);
-                        $http.post(BASE_URL + 'api/Account/RegisterExternal', user.Email)
-                            .then(function (response) {
-                                deferred.resolve(response.data);
-                                console.log(response);
-                            }, function (error) {
-                                deferred.reject(error);
-                            });
                     }, function (error) {
                         deferred.reject(error);
                     });
-
-
 
                 return deferred.promise;
             };
 
             function loginUser(user) {
                 var deferred = $q.defer();
-
-                $http.post(BASE_URL + 'api/Account/Login', user)
+                $http.post(BASE_URL + 'api/Token', user, {'Content-Type': 'application/x-www-form-urlencoded'})
                     .then(function (response) {
                         deferred.resolve(response.data);
+                        console.log(response);
                     }, function (error) {
                         deferred.reject(error);
                     });

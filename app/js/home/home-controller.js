@@ -15,7 +15,9 @@ angular.module('IssueTrackingSystem.Home', [
     'authentication',
     function ($scope, authentication) {
         $scope.loginUser = function (user) {
-            authentication.loginUser(user);
+            //grant_type=password&username=Alice&password=password123
+            var userAsString = 'username=' + user.email + '&password=' + user.password + '&grant_type=password';
+            authentication.loginUser(userAsString);
         };
 
         $scope.registerUser = function (user) {
