@@ -2,8 +2,8 @@
 
 angular.module('IssueTrackingSystem', [
         'ngRoute',
-        'IssueTrackingSystem.Users.Authentication',
-        'IssueTrackingSystem.Home'
+        'IssueTrackingSystem.Home',
+        'IssueTrackingSystem.Dashboard'
     ]).config([
         '$routeProvider',
         function ($routeProvider) {

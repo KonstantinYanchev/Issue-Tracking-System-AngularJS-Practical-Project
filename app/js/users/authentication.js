@@ -1,4 +1,5 @@
 "use strict";
+//Отговаря за логване/регистриране/логоут-ване на потребител;
 
 angular.module('IssueTrackingSystem.Users.Authentication', [])
     .factory('authentication', [
@@ -25,6 +26,7 @@ angular.module('IssueTrackingSystem.Users.Authentication', [])
                 $http.post(BASE_URL + 'api/Token', user, {'Content-Type': 'application/x-www-form-urlencoded'})
                     .then(function (response) {
                         deferred.resolve(response.data);
+
                         console.log(response);
                     }, function (error) {
                         deferred.reject(error);
