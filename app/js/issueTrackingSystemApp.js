@@ -2,6 +2,9 @@
 
 angular.module('IssueTrackingSystem', [
         'ngRoute',
+        'IssueTrackingSystem.Common',
+        'IssueTrackingSystem.Users.Identity',
+        'IssueTrackingSystem.Users.Profile',
         'IssueTrackingSystem.Home',
         'IssueTrackingSystem.Dashboard'
     ]).config([

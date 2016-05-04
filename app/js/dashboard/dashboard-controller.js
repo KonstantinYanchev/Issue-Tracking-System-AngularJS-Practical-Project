@@ -4,7 +4,7 @@ angular.module('IssueTrackingSystem.Dashboard', [])
     .config([
         '$routeProvider',
         function ($routeProvider) {
-            $routeProvider.when('/dashboard', {
+            $routeProvider.when('/Dashboard', {
                 templateUrl: 'js/dashboard/dashboard.html',
                 controller: 'DashboardController'
             });

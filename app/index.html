@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="styles/styles.css" />
         <link rel="shortcut icon" href="images/favicon/issueTrackerFavicon.ico" />
     </head>
-    <body>
+    <body ng-controller="MainController">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -21,21 +21,9 @@
             </div>
 
             <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <ul class="dropdown-menu" aria-labelledby="themes">
-
-                        </ul>
-                    </li>
-
+                <ul ng-if="isAuthenticated" class="nav navbar-nav">
                     <li>
-                        <a href="#/">Home</a>
-                    </li>
-
-                    <li class="dropdown">
-                        <ul class="dropdown-menu" aria-labelledby="download">
-
-                        </ul>
+                        <a href="#/Profile">Profile</a>
                     </li>
                 </ul>
 
@@ -61,6 +49,9 @@
     <script src="js/issueTrackingSystemApp.js" type="text/javascript"></script>
     <script src="js/users/authentication.js" type="text/javascript"></script>
     <script src="js/users/identity.js" type="text/javascript"></script>
+    <script src="js/users/changePassword.js" type="text/javascript"></script>
+    <script src="js/users/profile-controller.js" type="text/javascript"></script>
+    <script src="js/common/main-controller.js" type="text/javascript"></script>
     <script src="js/home/home-controller.js" type="text/javascript"></script>
     <script src="js/dashboard/dashboard-controller.js" type="text/javascript"></script>
     </body>

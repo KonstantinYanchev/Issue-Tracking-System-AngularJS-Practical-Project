@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="margin-top-60"></div>
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="well bs-component">
+            <form class="form-horizontal" name="chngUserPassword">
+                <fieldset>
+                    <legend>Change Password</legend>
+                    <div class="form-group">
+                        <label for="old-password" class="col-lg-5 control-label">Old Password</label>
+                        <div class="col-lg-6">
+                            <input type="password" ng-model="changeUser.oldPassword" minlength="6" maxlength="100" required="required" class="form-control" id="old-password" placeholder="Old Password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="change-password" class="col-lg-5 control-label">New Password</label>
+                        <div class="col-lg-6">
+                            <input type="password" ng-model="changeUser.password" minlength="6" maxlength="100" required="required" class="form-control" id="change-password" placeholder="New Password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="change-confirm-password" class="col-lg-5 control-label">Confirm New Password</label>
+                        <div class="col-lg-6">
+                            <input type="password" ng-model="changeUser.confirmPassword"  minlength="6" maxlength="100"  required="required" class="form-control" id="change-confirm-password" placeholder="Confirm New Password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-5">
+                            <input type="reset" class="btn btn-default" value="Clear" />
+                            <input type="submit" ng-disabled="chngUserPassword.$invalid || changeUser.password != changeUser.confirmPassword" ng-click="changeUserPassword(changeUser)" class="btn btn-primary" value="Change" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

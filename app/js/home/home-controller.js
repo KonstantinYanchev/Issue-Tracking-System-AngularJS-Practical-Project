@@ -21,7 +21,7 @@ angular.module('IssueTrackingSystem.Home', [
             authentication.loginUser(userAsString)
                 .then(function (loggedUser) {
                     console.log(loggedUser);
-                    $location.path('/dashboard'); //TODO:: Enter a path where user should be redirected after he has logged;
+                    $location.path('/Dashboard'); //TODO:: Enter a path where user should be redirected after he has logged;
                 });
         };
 
