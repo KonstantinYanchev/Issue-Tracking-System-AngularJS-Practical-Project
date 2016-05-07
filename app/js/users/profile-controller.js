@@ -5,7 +5,7 @@ angular.module('IssueTrackingSystem.Users.Profile', [
     ]).config([
         '$routeProvider',
         function ($routeProvider) {
-            $routeProvider.when('/Profile', {
+            $routeProvider.when('/Profile/Password', {
                 templateUrl: 'js/users/profile.html',
                 controller: 'ProfileController'
             });
@@ -15,7 +15,7 @@ angular.module('IssueTrackingSystem.Users.Profile', [
         'changePassword',
         function ($scope, changePassword) {
             $scope.changeUserPassword = function (changeUserPasswordData) {
-                console.log(changeUserPasswordData);
+                //console.log(changeUserPasswordData);
                 changePassword.changePassword(changeUserPasswordData);
             }
         }
