@@ -4,9 +4,8 @@ angular.module('IssueTrackingSystem.Issues.Issues', [])
     .factory('issues', [
         '$http',
         '$q',
-        'notifier',
         'BASE_URL',
-        function ($http, $q, notifier, BASE_URL) {
+        function ($http, $q, BASE_URL) {
             function getMyIssues(pageSize, pageNumber, orderBy) {
                 var pageSize = pageSize || 5,
                     pageNumber = pageNumber || 1,
