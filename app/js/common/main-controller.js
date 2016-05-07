@@ -3,14 +3,24 @@
 angular.module('IssueTrackingSystem.Common', [])
     .controller('MainController', [
         '$scope',
-        '$http',
+        'authentication',
         'identity',
-        function ($scope, $http, identity) {
-            identity.getCurrentUser()
-                .then(function (currentUser) {
-                    $scope.currentUser = currentUser;
-                });
-
-            $scope.isAuthenticated = identity.isAuthenticated();
+        function ($scope, authentication, identity) {
+            $scope.isAuthenticated = identity.isAuthenticated;
+            
+            
+        }
+    ]).directive('userRequire', [
+        'identity',
+        function (identity) {
+            return {
+                restrict: 'A',
+                link: function (scope) {
+                    identity.getCurrentUser()
+                        .then(function (response) {
+                            scope.$parent.currentUser = response;
+                        });
+                }
+            }
         }
     ]);

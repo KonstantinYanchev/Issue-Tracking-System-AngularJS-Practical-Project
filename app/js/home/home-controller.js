@@ -41,16 +41,14 @@ angular.module('IssueTrackingSystem.Home', [
             //TODO: getCurrentUser and make a request through the method authentication.logout(user);
             var deferred = $q.defer();
 
-            identity.getCurrentUser()
-                .then(function (user) {
-                    console.log(user);
-                    authentication.logoutUser(user);
-                    $location.path('/');
-                    deferred.resolve(user);
+            authentication.logoutUser()
+                .then(function (response) {
+                    localStorage.removeItem('userAuth');
+                    sessionStorage.removeItem('isAdmin');
+                    deferred.resolve(response);
                 }, function (error) {
-                    deferred.reject(error);
+                    deferred.reject(error.data.error_description);
                 });
-            return deferred.promise;
         }
     }
 ]);

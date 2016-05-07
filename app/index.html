@@ -21,20 +21,19 @@
             </div>
 
             <div class="navbar-collapse collapse" id="navbar-main">
-                <ul ng-if="isAuthenticated" class="nav navbar-nav">
+                <ul user-require ng-if="isAuthenticated()" class="nav navbar-nav">
                     <li>
                         <a href="#/Profile">Profile</a>
                     </li>
                     <li>
                         <a href="#/Dashboard">Dashboard</a>
                     </li>
-                    <li>
-                        <a href="#/Logout" ng-click="logoutUser()">Logout</a>
-                    </li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-
+                <ul user-require ng-if="isAuthenticated()" class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ng-controller="HomeController" href="#/Logout" ng-click="logoutUser()">Logout</a>
+                    </li>
                 </ul>
 
             </div>
