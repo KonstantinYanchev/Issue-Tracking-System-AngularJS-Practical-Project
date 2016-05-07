@@ -1,27 +1,26 @@
 "use strict";
 
-angular.module('IssueTrackingSystem.Users.ChangePassword', [])
-    .factory('changePassword', [
+angular.module('IssueTrackingSystem.Users.Admin', [])
+    .factory('admin', [
         '$http',
         '$q',
         'BASE_URL',
         function ($http, $q, BASE_URL) {
-            function changePassword(newPasswordData) {
+            function makeAdmin(user) {
                 var deferred = $q.defer();
 
-                $http.post(BASE_URL + 'api/Account/ChangePassword', newPasswordData)
+                $http.put(BASE_URL + 'users/makeadmin', user)
                     .then(function (response) {
-                        console.log(response);
                         deferred.resolve(response);
                     }, function (error) {
                         deferred.reject(error.data.error_description);
                     });
 
                 return deferred.promise;
-            };
+            }
 
             return {
-                changePassword: changePassword
-            };
+                makeAdmin: makeAdmin
+            }
         }
     ]);
