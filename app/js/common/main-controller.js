@@ -7,8 +7,8 @@ angular.module('IssueTrackingSystem.Common', [])
         'identity',
         function ($scope, authentication, identity) {
             $scope.isAuthenticated = identity.isAuthenticated;
-            
-            
+
+
         }
     ]).directive('userRequire', [
         'identity',

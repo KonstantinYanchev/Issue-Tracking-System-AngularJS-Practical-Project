@@ -2,7 +2,10 @@
 
 angular.module('IssueTrackingSystem', [
         'ngRoute',
+        'ngSanitize',
+        'ngNotify',
         'IssueTrackingSystem.Common',
+        'IssueTrackingSystem.Extensions.Notifier',
         'IssueTrackingSystem.Users.Identity',
         'IssueTrackingSystem.Users.Profile',
         'IssueTrackingSystem.Home',
