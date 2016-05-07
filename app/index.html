@@ -29,6 +29,12 @@
                     <li>
                         <a href="#/Profile/Password">Profile</a>
                     </li>
+                    <li>
+                        <a href="#/Users" user-require ng-if="currentUser.isAdmin">Users</a>
+                    </li>
+                    <li>
+                        <a href="#/Projects" user-require ng-if="currentUser.isAdmin">Projects</a>
+                    </li>
                 </ul>
 
                 <ul user-require ng-if="isAuthenticated()" class="nav navbar-nav navbar-right">
@@ -50,6 +56,7 @@
 
     <script src="js/components/angular/angular.js" type="text/javascript"></script>
     <script src="js/components/angular-route/angular-route.js" type="text/javascript"></script>
+    <script src="js/components/angular-simple-pagination/simplePagination.js" type="text/javascript"></script>
     <script src="js/components/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="js/components/bootstrap/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/components/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
@@ -61,8 +68,12 @@
     <script src="js/users/admin.js" type="text/javascript"></script>
     <script src="js/users/changePassword.js" type="text/javascript"></script>
     <script src="js/users/profile-controller.js" type="text/javascript"></script>
+    <script src="js/users/users-controller.js" type="text/javascript"></script>
+    <script src="js/issues/issues.js" type="text/javascript"></script>
+    <script src="js/projects/projects.js" type="text/javascript"></script>
     <script src="js/common/main-controller.js" type="text/javascript"></script>
     <script src="js/home/home-controller.js" type="text/javascript"></script>
     <script src="js/dashboard/dashboard-controller.js" type="text/javascript"></script>
+    <script src="js/issues/issue-controller.js" type="text/javascript"></script>
     </body>
 </html>

@@ -14,7 +14,7 @@ angular.module('IssueTrackingSystem.Users.Identity', [])
                 $http.defaults.headers.common.Authorization = 'Bearer ' + accessToken;
                 $http.get(BASE_URL + 'users/me')
                     .then(function (response) {
-                        sessionStorage['isAdmin'] = response.data.IsAdmin;
+                        sessionStorage['isAdmin'] = response.data.isAdmin;
                         sessionStorage['userId'] = response.data.Id;
                         deferred.resolve(response);
                     }, function (error) {

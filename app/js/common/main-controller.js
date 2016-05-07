@@ -17,8 +17,8 @@ angular.module('IssueTrackingSystem.Common', [])
                 restrict: 'A',
                 link: function (scope) {
                     identity.getCurrentUser()
-                        .then(function (response) {
-                            scope.$parent.currentUser = response;
+                        .then(function (user) {
+                            scope.$parent.currentUser = user.data;
                         });
                 }
             }
