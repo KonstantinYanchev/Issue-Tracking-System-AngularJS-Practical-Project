@@ -5,8 +5,9 @@ angular.module('IssueTrackingSystem.Users.Authentication', [])
     .factory('authentication', [
         '$http',
         '$q',
+        '$location',
         'BASE_URL',
-        function ($http, $q, BASE_URL) {
+        function ($http, $q, $location, BASE_URL) {
             function registerUser(user) {
                 var deferred = $q.defer();
 
@@ -22,11 +23,13 @@ angular.module('IssueTrackingSystem.Users.Authentication', [])
             };
 
             function loginUser(user) {
-                var deferred = $q.defer();
-                $http.post(BASE_URL + 'api/Token', user, {'Content-Type': 'application/x-www-form-urlencoded'})
+                var deferred = $q.defer(),
+                    userAsString = 'username=' + user.email + '&password=' + user.password + '&grant_type=password';
+                $http.post(BASE_URL + 'api/Token', userAsString, {'Content-Type': 'application/x-www-form-urlencoded'})
                     .then(function (response) {
                         //console.log(response.data.access_token);
                        localStorage['userAuth'] = response.data.access_token;
+                        $location.path('/Dashboard');
                         deferred.resolve(response.data);
                     }, function (error) {
                         deferred.reject(error.data.error_description);

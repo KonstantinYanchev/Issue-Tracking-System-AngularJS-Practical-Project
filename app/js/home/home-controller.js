@@ -22,12 +22,9 @@ angular.module('IssueTrackingSystem.Home', [
     'notifier',
     function ($scope, $q, $location, authentication, notifier) {
         $scope.loginUser = function (user) {
-            var userAsString = 'username=' + user.email + '&password=' + user.password + '&grant_type=password';
-            authentication.loginUser(userAsString)
+            authentication.loginUser(user)
                 .then(function (loggedUser) {
-                    //console.log(loggedUser);
                     notifier.notify('You have been successfully logged in!', 'success');
-                    $location.path('/Dashboard'); //TODO:: Enter a path where user should be redirected after he has logged;
                 }, function (error) {
                     notifier.notify('Your e-mail or password is uncorrect. Please try again!', 'error')
                 });
@@ -36,8 +33,8 @@ angular.module('IssueTrackingSystem.Home', [
         $scope.registerUser = function (user) {
             authentication.registerUser(user)
                 .then(function (registeredUser) {
-                    //console.log(registeredUser);
                     notifier.notify('You have been successfully registered!', 'success');
+                    authentication.loginUser(user);
                 }, function (error) {
                     notifier.notify('Your e-mail or password is uncorrect. Please try again!', 'error');
                 });
