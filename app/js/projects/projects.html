@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" ng-click="addProject(project)" class="btn btn-primary" class="close" data-dismiss="modal">Add Project</button>
+                    <button type="submit" ng-click="addProject(project)" class="btn btn-primary col-lg-offset-2" class="close" data-dismiss="modal">Add Project</button>
                 </fieldset>
             </form>
         </div>
@@ -79,7 +79,7 @@
     </div>
 </div>
 <div class="row" id="pagination-centered">
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-lg-8 col-lg-offset-3">
         <ul class="pagination users-pagination " ng-if="!searchFilter">
             <li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
             <li ng-repeat="n in [] | range: pagination.numPages | startFrom: pagination.page<=2?0:pagination.page - 2 | limitTo: 5" ng-class="{active: n == pagination.page}">

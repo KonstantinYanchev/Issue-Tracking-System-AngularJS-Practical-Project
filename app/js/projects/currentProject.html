@@ -1,0 +1,164 @@
+<div class="row">
+    <div class="margin-top-60"></div>
+    <div class="col-lg-8 col-lg-offset-2">
+        <header>
+            <h1>{{project.Name}}</h1>
+        </header>
+
+        <div id="project-info" class="col-md-6">
+            <h3>Description:</h3>
+            <li>{{project.Description}}</li>
+            <h3>Leader:</h3>
+            <li>{{project.Lead.Username}}</li>
+
+            <h3>Labels:</h3>
+            <ul>
+                <li ng-repeat="label in project.Labels">{{label.Name}}</li>
+            </ul>
+
+            <div ng-controller="ProjectsController" class="container margin-top-20">
+                <div user-require class="wrapper" ng-if="lead()||currentUser.isAdmin">
+                    <div class="well bs-component  col-lg-8">
+                        <form role="form" class="form-horizontal">
+                            <fieldset>
+                                <legend>
+                                    Edit Project
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="name" class="col-lg-2 control-label">Name</label>
+                                    <div class="col-lg-10">
+                                        <input required type="text" ng-model="project.Name" class="form-control" id="name" placeholder="Enter name" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descriptions" class="col-lg-2 control-label">Description</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" ng-model="project.Description" class="form-control" id="descriptions" placeholder="Enter description" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group" user-require ng-if="currentUser.isAdmin">
+                                    <label for="leader" class="col-lg-2 control-label">Leader</label>
+                                    <div class="col-lg-10">
+                                        <select id="leader" ng-model="project.leadId">
+                                            <option ng-repeat="user in users" value="{{user.Id}}">{{user.Username}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="project-key" class="col-lg-2 control-label">Project Key</label>
+                                    <div class="col-lg-10">
+                                        <input required disabled type="text" ng-model="project.ProjectKey" class="form-control" id="project-key"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="label" class="col-lg-2 control-label">Add Labels</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" ng-model="project.labels" class="form-control" id="label" placeholder="{{project.labelsStr}}"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="priorities" class="col-lg-2 control-label">Add Priorities</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" ng-model="project.priorities" class="form-control" id="priorities" placeholder="{{project.prioritiesStr}}"/>
+                                    </div>
+                                </div>
+
+                                <button type="submit" ng-click="editProject(project)" class="btn btn-primary col-lg-offset-2" class="close" data-dismiss="modal">Edit</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="project-issues" class="col-md-5 col-md-offset-1">
+            <header>
+                <h3>Issues:</h3>
+            </header>
+            <label for="isMineFilt"><input type="checkbox" ng-model="onlyMy" id="isMineFilt">Show only my issues</label>
+            <div class="issues">
+                <div class="issue-container" ng-repeat="issue in issues | onlyAsigned:onlyMy | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+                    <a href="#/issues/{{issue.Id}}">{{issue.Title}}</a>
+                </div>
+            </div>
+            <div ng-controller="AddIssueController" class="container">
+                <div class="wrapper" user-require ng-if="lead() || currentUser.isAdmin">
+
+                    <div  class="well bs-component  col-lg-8 col-lg-offset-2">
+                        <form role="form" class="form-horizontal">
+                            <fieldset>
+                                <legend>
+                                    Add Issue
+                                </legend>
+
+                                <div class="form-group">
+                                    <label for="title" class="col-lg-2 control-label">Title</label>
+                                    <div class="col-lg-10">
+                                        <input required type="text" ng-model="issue.title" class="form-control" id="title" placeholder="Enter title" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description" class="col-lg-2 control-label">Description</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" ng-model="issue.description" class="form-control" id="description" placeholder="Enter description" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="due-date" class="col-lg-2 control-label">Due Date</label>
+                                    <div class="col-lg-10">
+                                        <input type="date" ng-model="issue.dueDate" class="form-control" id="due-date" placeholder="Enter DueDate" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="projectId" class="col-lg-2 control-label">Project Id</label>
+                                    <div class="col-lg-10">
+                                        <input disabled type="text" ng-model="issue.projectId" id="projectId"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="due-date" class="col-lg-2 control-label">Assignee</label>
+                                    <div class="col-lg-10">
+                                        <select ng-model="issue.assigneeId">
+                                            <option ng-repeat="user in users" value="{{user.Id}}">{{user.Username}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="priority" class="col-lg-2 control-label">Priority</label>
+                                    <div class="col-lg-10">
+                                        <select id="priority" ng-model="issue.priorityId ">
+                                            <option ng-repeat="priority in priorities" value="{{priority.Id}}">{{priority.Name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button type="submit" ng-click="addIssue(issue)" class="btn btn-primary" class="close" data-dismiss="modal">Add Issue</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2 col-md-offset-7">
+        <ul class="pagination users-pagination " ng-if="!searchFilter">
+            <li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+            <li ng-repeat="n in [] | range: pagination.numPages | startFrom: pagination.page<=2?0:pagination.page - 2 | limitTo: 5" ng-class="{active: n == pagination.page}">
+                <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+            </li>
+            <li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+        </ul>
+    </div>
+</div>

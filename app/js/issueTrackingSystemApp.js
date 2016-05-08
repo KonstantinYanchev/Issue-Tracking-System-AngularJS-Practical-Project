@@ -9,6 +9,7 @@ angular.module('IssueTrackingSystem', [
         'IssueTrackingSystem.Common.MainController',
         'IssueTrackingSystem.Users.UsersController',
         'IssueTrackingSystem.Projects.ProjectController',
+        'IssueTrackingSystem.Projects.CurrentProjectController',
         'IssueTrackingSystem.Users.ProfileController',
         'IssueTrackingSystem.HomeController',
         'IssueTrackingSystem.DashboardController',
