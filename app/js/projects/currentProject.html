@@ -26,22 +26,22 @@
                                 </legend>
 
                                 <div class="form-group">
-                                    <label for="name" class="col-lg-2 control-label">Name</label>
-                                    <div class="col-lg-10">
+                                    <label for="name" class="col-lg-3 control-label">Name</label>
+                                    <div class="col-lg-9">
                                         <input required type="text" ng-model="project.Name" class="form-control" id="name" placeholder="Enter name" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="descriptions" class="col-lg-2 control-label">Description</label>
-                                    <div class="col-lg-10">
+                                    <label for="descriptions" class="col-lg-3 control-label">Description</label>
+                                    <div class="col-lg-9">
                                         <input type="text" ng-model="project.Description" class="form-control" id="descriptions" placeholder="Enter description" />
                                     </div>
                                 </div>
 
                                 <div class="form-group" user-require ng-if="currentUser.isAdmin">
-                                    <label for="leader" class="col-lg-2 control-label">Leader</label>
-                                    <div class="col-lg-10">
+                                    <label for="leader" class="col-lg-3 control-label">Leader</label>
+                                    <div class="col-lg-9">
                                         <select id="leader" ng-model="project.leadId">
                                             <option ng-repeat="user in users" value="{{user.Id}}">{{user.Username}}</option>
                                         </select>
@@ -49,22 +49,22 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="project-key" class="col-lg-2 control-label">Project Key</label>
-                                    <div class="col-lg-10">
+                                    <label for="project-key" class="col-lg-3 control-label">Project Key</label>
+                                    <div class="col-lg-9">
                                         <input required disabled type="text" ng-model="project.ProjectKey" class="form-control" id="project-key"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="label" class="col-lg-2 control-label">Add Labels</label>
-                                    <div class="col-lg-10">
+                                    <label for="label" class="col-lg-3 control-label">Add Labels</label>
+                                    <div class="col-lg-9">
                                         <input type="text" ng-model="project.labels" class="form-control" id="label" placeholder="{{project.labelsStr}}"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="priorities" class="col-lg-2 control-label">Add Priorities</label>
-                                    <div class="col-lg-10">
+                                    <label for="priorities" class="col-lg-3 control-label">Add Priorities</label>
+                                    <div class="col-lg-9">
                                         <input type="text" ng-model="project.priorities" class="form-control" id="priorities" placeholder="{{project.prioritiesStr}}"/>
                                     </div>
                                 </div>
