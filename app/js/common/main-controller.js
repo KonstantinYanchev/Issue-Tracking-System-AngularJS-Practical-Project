@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('IssueTrackingSystem.Common', [])
+angular.module('IssueTrackingSystem.Common.MainController', [])
     .controller('MainController', [
         '$scope',
         'authentication',

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('IssueTrackingSystem.Users.Profile', [
+angular.module('IssueTrackingSystem.Users.ProfileController', [
         'IssueTrackingSystem.Users.ChangePassword'
     ]).config([
         '$routeProvider',

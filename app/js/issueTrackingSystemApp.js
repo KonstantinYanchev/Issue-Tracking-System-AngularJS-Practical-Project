@@ -5,13 +5,14 @@ angular.module('IssueTrackingSystem', [
         'ngSanitize',
         'ngNotify',
         'simplePagination',
-        'IssueTrackingSystem.Common',
         'IssueTrackingSystem.Extensions.Notifier',
+        'IssueTrackingSystem.Common.MainController',
         'IssueTrackingSystem.Users.UsersController',
-        'IssueTrackingSystem.Users.Identity',
-        'IssueTrackingSystem.Users.Profile',
-        'IssueTrackingSystem.Home',
-        'IssueTrackingSystem.Dashboard'
+        'IssueTrackingSystem.Projects.ProjectController',
+        'IssueTrackingSystem.Users.ProfileController',
+        'IssueTrackingSystem.HomeController',
+        'IssueTrackingSystem.DashboardController',
+        'IssueTrackingSystem.Users.Identity'
     ]).config([
         '$routeProvider',
         function ($routeProvider) {

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('IssueTrackingSystem.Dashboard', [])
+angular.module('IssueTrackingSystem.DashboardController', [])
     .config([
         '$routeProvider',
         function ($routeProvider) {

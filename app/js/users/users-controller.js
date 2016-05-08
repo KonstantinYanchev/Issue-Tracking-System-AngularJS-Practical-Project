@@ -16,7 +16,8 @@ angular.module('IssueTrackingSystem.Users.UsersController', [
         'notifier',
         'Pagination',
         function UsersController($scope, identity, admin, notifier, Pagination) {
-            $scope.pagination = Pagination.getNew(8);
+            var countOfUsersPerPage = 8;
+            $scope.pagination = Pagination.getNew(countOfUsersPerPage);
 
             identity.getAllUsers()
                 .then(function (allUsers) {

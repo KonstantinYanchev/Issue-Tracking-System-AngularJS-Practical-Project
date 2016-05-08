@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('IssueTrackingSystem.Home', [
+angular.module('IssueTrackingSystem.HomeController', [
     'IssueTrackingSystem.Users.Authentication',
     'IssueTrackingSystem.Extensions.Notifier'
     ]).config([

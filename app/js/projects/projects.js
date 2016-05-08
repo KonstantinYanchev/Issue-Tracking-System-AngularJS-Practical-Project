@@ -9,7 +9,7 @@ angular.module('IssueTrackingSystem.Projects.Projects',[])
             function getAllProjects(){
                 var deferred = $q.defer();
 
-                $http.get(BASE_URL + 'projects/')
+                $http.get(BASE_URL + 'projects')
                     .then(function (response) {
                         deferred.resolve(response.data);
                     },function (error) {
