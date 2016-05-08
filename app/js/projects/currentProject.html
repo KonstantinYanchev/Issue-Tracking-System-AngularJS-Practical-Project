@@ -1,11 +1,11 @@
 <div class="row">
     <div class="margin-top-60"></div>
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-lg-8 ">
         <header>
             <h1>{{project.Name}}</h1>
         </header>
 
-        <div id="project-info" class="col-md-6">
+        <div id="project-info" class="col-md-12">
             <h3>Description:</h3>
             <li>{{project.Description}}</li>
             <h3>Leader:</h3>
@@ -16,7 +16,7 @@
                 <li ng-repeat="label in project.Labels">{{label.Name}}</li>
             </ul>
 
-            <div ng-controller="ProjectsController" class="container margin-top-20">
+            <div ng-controller="ProjectsController" class="container margin-top-25">
                 <div user-require class="wrapper" ng-if="lead()||currentUser.isAdmin">
                     <div class="well bs-component  col-lg-8">
                         <form role="form" class="form-horizontal">
@@ -69,27 +69,27 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" ng-click="editProject(project)" class="btn btn-primary col-lg-offset-2" class="close" data-dismiss="modal">Edit</button>
+                                <button type="submit" ng-click="editProject(project)" class="btn btn-primary" class="close" data-dismiss="modal">Edit</button>
                             </fieldset>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="project-issues" class="col-md-5 col-md-offset-1">
+        <div id="project-issues" class="col-md-5 ">
             <header>
                 <h3>Issues:</h3>
             </header>
             <label for="isMineFilt"><input type="checkbox" ng-model="onlyMy" id="isMineFilt">Show only my issues</label>
             <div class="issues">
                 <div class="issue-container" ng-repeat="issue in issues | onlyAsigned:onlyMy | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-                    <a href="#/issues/{{issue.Id}}">{{issue.Title}}</a>
+                    <a href="#/Issues/{{issue.Id}}">{{issue.Title}}</a>
                 </div>
             </div>
-            <div ng-controller="AddIssueController" class="container">
+            <div ng-controller="AddIssueController" class="container margin-top-25">
                 <div class="wrapper" user-require ng-if="lead() || currentUser.isAdmin">
 
-                    <div  class="well bs-component  col-lg-8 col-lg-offset-2">
+                    <div  class="well bs-component  col-lg-8 ">
                         <form role="form" class="form-horizontal">
                             <fieldset>
                                 <legend>
@@ -152,7 +152,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-2 col-md-offset-7">
+    <div class="col-md-6">
         <ul class="pagination users-pagination " ng-if="!searchFilter">
             <li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
             <li ng-repeat="n in [] | range: pagination.numPages | startFrom: pagination.page<=2?0:pagination.page - 2 | limitTo: 5" ng-class="{active: n == pagination.page}">

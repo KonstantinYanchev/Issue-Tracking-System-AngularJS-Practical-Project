@@ -15,6 +15,7 @@ angular.module('IssueTrackingSystem', [
         'IssueTrackingSystem.DashboardController',
         'IssueTrackingSystem.Users.Identity',
         'IssueTrackingSystem.Issues.Issues',
+        'IssueTrackingSystem.Issues.AddIssueController',
         'IssueTrackingSystem.Projects.Projects'
     ]).config([
         '$routeProvider',

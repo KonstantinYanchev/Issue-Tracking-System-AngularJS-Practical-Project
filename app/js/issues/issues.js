@@ -31,7 +31,7 @@ angular.module('IssueTrackingSystem.Issues.Issues', [])
             function addIssue(issue) {
                 var deferred = $q.defer();
 
-                $http.post(BASE_URL + 'issues', issue)
+                $http.post(BASE_URL + 'issues/', issue)
                     .then(function (response) {
                         deferred.resolve(response.data);
                     }, function (error) {
